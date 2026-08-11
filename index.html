@@ -3,7 +3,6 @@
   <h1>.</h1>
 </body>
 </html>
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -83,12 +82,14 @@
 
         .menu h2 {
             font-size: 36px;
+            margin-bottom: 10px;
         }
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
+            margin-top: 35px;
         }
 
         .card {
@@ -96,6 +97,11 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
         }
 
         .food {
@@ -112,13 +118,26 @@
         }
 
         .card h3 {
-            margin-top: 0;
+            margin: 0 0 5px;
+            font-size: 21px;
+        }
+
+        .english-name {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            min-height: 45px;
         }
 
         .price {
             color: #8b432a;
             font-size: 20px;
             font-weight: bold;
+            margin-top: 15px;
         }
 
         .order {
@@ -155,112 +174,339 @@
 
 <body>
 
-    <!-- ส่วนหัวเว็บไซต์ -->
+    <!-- Header -->
     <header>
+
         <nav>
             <div class="logo">Lanna Eats</div>
-            <a href="#menu">เมนูอาหาร</a>
+
+            <a href="#menu">
+                เมนูอาหาร
+            </a>
         </nav>
 
         <div class="hero">
-            <h1>อร่อยแบบล้านนา<br>สั่งง่าย ส่งถึงคุณ</h1>
+
+            <h1>
+                อร่อยแบบล้านนา<br>
+                สั่งง่าย ส่งถึงคุณ
+            </h1>
 
             <p>
                 Lanna Eats เสิร์ฟอาหารเหนือรสชาติเข้มข้น
-                ใช้วัตถุดิบคุณภาพ และสั่งซื้อได้ง่ายในช่องทางเดียว
+                พร้อมเมนูหลากหลาย ทั้งข้าวซอย อาหารทานเล่น
+                และเครื่องดื่ม
             </p>
 
-            <a href="#order" class="button">สั่งอาหาร</a>
+            <a href="#order" class="button">
+                สั่งอาหาร
+            </a>
+
         </div>
+
     </header>
 
 
-    <!-- ส่วนเมนู -->
+    <!-- Menu -->
     <section class="menu" id="menu">
 
-        <h2>เมนูแนะนำ</h2>
+        <h2>เมนูทั้งหมด</h2>
 
-        <p>เลือกเมนูโปรดของคุณจากรายการด้านล่าง</p>
+        <p>
+            อาหารเหนือและเครื่องดื่มจาก Lanna Eats
+        </p>
+
 
         <div class="menu-grid">
 
+
+            <!-- M01 -->
             <div class="card">
-                <div class="food">🍛</div>
+
+                <div class="food">🍜</div>
 
                 <div class="card-content">
+
                     <h3>ข้าวซอยไก่</h3>
 
+                    <div class="english-name">
+                        Khao Soi Chicken
+                    </div>
+
                     <p>
-                        ข้าวซอยสูตรเข้มข้น
-                        หอมเครื่องแกง เสิร์ฟพร้อมไก่นุ่ม
+                        ข้าวซอยไก่รสเข้มข้น
+                        หอมเครื่องแกงแบบล้านนา
                     </p>
 
-                    <div class="price">฿79</div>
+                    <div class="price">
+                        ฿69
+                    </div>
+
                 </div>
+
             </div>
 
 
+            <!-- M02 -->
             <div class="card">
-                <div class="food">🥩</div>
+
+                <div class="food">🍜</div>
 
                 <div class="card-content">
+
+                    <h3>ข้าวซอยเนื้อ</h3>
+
+                    <div class="english-name">
+                        Khao Soi Beef
+                    </div>
+
+                    <p>
+                        ข้าวซอยเนื้อรสเข้มข้น
+                        เสิร์ฟพร้อมเนื้อนุ่ม
+                    </p>
+
+                    <div class="price">
+                        ฿79
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- M03 -->
+            <div class="card">
+
+                <div class="food">🥬</div>
+
+                <div class="card-content">
+
+                    <h3>ข้าวซอยเจ</h3>
+
+                    <div class="english-name">
+                        Khao Soi Vegan
+                    </div>
+
+                    <p>
+                        ข้าวซอยสูตรเจ
+                        สำหรับผู้ที่รับประทานอาหารเจ
+                    </p>
+
+                    <div class="price">
+                        ฿69
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- M04 -->
+            <div class="card">
+
+                <div class="food">🌭</div>
+
+                <div class="card-content">
+
                     <h3>ไส้อั่ว</h3>
 
+                    <div class="english-name">
+                        Sai Ua Sausage
+                    </div>
+
                     <p>
-                        ไส้อั่วสมุนไพรหอม ๆ
-                        รสกลมกล่อมแบบอาหารเหนือ
+                        ไส้อั่วสมุนไพร
+                        หอมเครื่องเทศแบบอาหารเหนือ
                     </p>
 
-                    <div class="price">฿89</div>
+                    <div class="price">
+                        ฿49
+                    </div>
+
                 </div>
+
             </div>
 
 
+            <!-- M05 -->
             <div class="card">
-                <div class="food">🌶️</div>
+
+                <div class="food">🥓</div>
 
                 <div class="card-content">
-                    <h3>น้ำพริกหนุ่ม + แคบหมู</h3>
+
+                    <h3>แคบหมู</h3>
+
+                    <div class="english-name">
+                        Pork Crackling
+                    </div>
 
                     <p>
-                        น้ำพริกหนุ่มรสเผ็ดกำลังดี
-                        พร้อมแคบหมูกรอบ
+                        แคบหมูกรอบ
+                        ทานคู่กับน้ำพริกหรือเมนูโปรด
                     </p>
 
-                    <div class="price">฿69</div>
+                    <div class="price">
+                        ฿39
+                    </div>
+
                 </div>
+
             </div>
 
 
+            <!-- M06 -->
             <div class="card">
+
+                <div class="food">🍜</div>
+
+                <div class="card-content">
+
+                    <h3>ข้าวซอยทะเล</h3>
+
+                    <div class="english-name">
+                        Khao Soi Seafood
+                    </div>
+
+                    <p>
+                        ข้าวซอยพร้อมอาหารทะเล
+                        รสเข้มข้นแบบล้านนา
+                    </p>
+
+                    <div class="price">
+                        ฿99
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- M07 -->
+            <div class="card">
+
+                <div class="food">🧋</div>
+
+                <div class="card-content">
+
+                    <h3>ชาเย็น</h3>
+
+                    <div class="english-name">
+                        Thai Iced Tea
+                    </div>
+
+                    <p>
+                        ชาไทยเย็น หอมหวาน
+                        ดื่มคู่กับอาหารได้อย่างลงตัว
+                    </p>
+
+                    <div class="price">
+                        ฿29
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- M08 -->
+            <div class="card">
+
+                <div class="food">🍊</div>
+
+                <div class="card-content">
+
+                    <h3>น้ำส้ม</h3>
+
+                    <div class="english-name">
+                        Orange Juice
+                    </div>
+
+                    <p>
+                        น้ำส้มรสสดชื่น
+                        เหมาะสำหรับดื่มคู่กับมื้ออาหาร
+                    </p>
+
+                    <div class="price">
+                        ฿35
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- M09 -->
+            <div class="card">
+
+                <div class="food">🍜</div>
+
+                <div class="card-content">
+
+                    <h3>ขนมจีนน้ำเงี้ยว</h3>
+
+                    <div class="english-name">
+                        Khanom Jeen Nam Ngiao
+                    </div>
+
+                    <p>
+                        ขนมจีนน้ำเงี้ยว
+                        เมนูอาหารเหนือรสกลมกล่อม
+                    </p>
+
+                    <div class="price">
+                        ฿59
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- M10 -->
+            <div class="card">
+
                 <div class="food">🍚</div>
 
                 <div class="card-content">
-                    <h3>ชุดขันโตก</h3>
+
+                    <h3>ข้าวเหนียว</h3>
+
+                    <div class="english-name">
+                        Sticky Rice
+                    </div>
 
                     <p>
-                        รวมเมนูยอดนิยมสำหรับรับประทานร่วมกัน
-                        2–3 คน
+                        ข้าวเหนียวร้อน ๆ
+                        เหมาะสำหรับรับประทานคู่กับอาหารเหนือ
                     </p>
 
-                    <div class="price">฿249</div>
+                    <div class="price">
+                        ฿15
+                    </div>
+
                 </div>
+
             </div>
 
+
         </div>
+
     </section>
 
 
-    <!-- ส่วนสั่งซื้อ -->
+    <!-- Order -->
     <section class="order" id="order">
 
-        <h2>หิวแล้วใช่ไหม?</h2>
+        <h2>
+            หิวแล้วใช่ไหม?
+        </h2>
 
         <p>
             สั่งอาหารหรือติดต่อ Lanna Eats ได้เลย
         </p>
 
-        <!-- เปลี่ยน URL ตรงนี้เป็น Google Form ของคุณ -->
+        <!-- เปลี่ยนลิงก์นี้เป็น Google Form จริงของคุณ -->
         <a
             href="https://forms.google.com/"
             target="_blank"
@@ -274,9 +520,19 @@
 
     <!-- Footer -->
     <footer>
-        <p><strong>Lanna Eats</strong></p>
-        <p>อาหารเหนือสไตล์ล้านนา</p>
-        <p>© 2026 Lanna Eats</p>
+
+        <p>
+            <strong>Lanna Eats</strong>
+        </p>
+
+        <p>
+            อาหารเหนือสไตล์ล้านนา
+        </p>
+
+        <p>
+            © 2026 Lanna Eats
+        </p>
+
     </footer>
 
 </body>
