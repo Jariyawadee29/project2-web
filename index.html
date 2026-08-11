@@ -3,3 +3,284 @@
   <h1> Hello, I am a  student.</h1>
 </body>
 </html>
+ขอแบบที่ใส่โค้ด
+
+ได้ครับ ถ้าหมายถึง ขอโค้ด HTML ที่เอาไป Copy แล้ววางใน index.html ได้เลย ใช้อันนี้ได้ครับ:
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lanna Eats</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fffaf3;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6b3525, #b9683c);
+            color: white;
+            padding: 20px;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 650px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 25px;
+            background-color: #f2b544;
+            color: #333;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        .menu {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 20px;
+        }
+
+        .menu h2 {
+            font-size: 36px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .food {
+            height: 160px;
+            background-color: #f3dfc2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .price {
+            color: #8b432a;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .order {
+            background-color: #30251f;
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #1f1814;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 800px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ส่วนหัวเว็บไซต์ -->
+    <header>
+        <nav>
+            <div class="logo">Lanna Eats</div>
+            <a href="#menu">เมนูอาหาร</a>
+        </nav>
+
+        <div class="hero">
+            <h1>อร่อยแบบล้านนา<br>สั่งง่าย ส่งถึงคุณ</h1>
+
+            <p>
+                Lanna Eats เสิร์ฟอาหารเหนือรสชาติเข้มข้น
+                ใช้วัตถุดิบคุณภาพ และสั่งซื้อได้ง่ายในช่องทางเดียว
+            </p>
+
+            <a href="#order" class="button">สั่งอาหาร</a>
+        </div>
+    </header>
+
+
+    <!-- ส่วนเมนู -->
+    <section class="menu" id="menu">
+
+        <h2>เมนูแนะนำ</h2>
+
+        <p>เลือกเมนูโปรดของคุณจากรายการด้านล่าง</p>
+
+        <div class="menu-grid">
+
+            <div class="card">
+                <div class="food">🍛</div>
+
+                <div class="card-content">
+                    <h3>ข้าวซอยไก่</h3>
+
+                    <p>
+                        ข้าวซอยสูตรเข้มข้น
+                        หอมเครื่องแกง เสิร์ฟพร้อมไก่นุ่ม
+                    </p>
+
+                    <div class="price">฿79</div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="food">🥩</div>
+
+                <div class="card-content">
+                    <h3>ไส้อั่ว</h3>
+
+                    <p>
+                        ไส้อั่วสมุนไพรหอม ๆ
+                        รสกลมกล่อมแบบอาหารเหนือ
+                    </p>
+
+                    <div class="price">฿89</div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="food">🌶️</div>
+
+                <div class="card-content">
+                    <h3>น้ำพริกหนุ่ม + แคบหมู</h3>
+
+                    <p>
+                        น้ำพริกหนุ่มรสเผ็ดกำลังดี
+                        พร้อมแคบหมูกรอบ
+                    </p>
+
+                    <div class="price">฿69</div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="food">🍚</div>
+
+                <div class="card-content">
+                    <h3>ชุดขันโตก</h3>
+
+                    <p>
+                        รวมเมนูยอดนิยมสำหรับรับประทานร่วมกัน
+                        2–3 คน
+                    </p>
+
+                    <div class="price">฿249</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ส่วนสั่งซื้อ -->
+    <section class="order" id="order">
+
+        <h2>หิวแล้วใช่ไหม?</h2>
+
+        <p>
+            สั่งอาหารหรือติดต่อ Lanna Eats ได้เลย
+        </p>
+
+        <!-- เปลี่ยน URL ตรงนี้เป็น Google Form ของคุณ -->
+        <a
+            href="https://forms.google.com/"
+            target="_blank"
+            class="button"
+        >
+            สั่งซื้อ / ติดต่อ
+        </a>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Lanna Eats</strong></p>
+        <p>อาหารเหนือสไตล์ล้านนา</p>
+        <p>© 2026 Lanna Eats</p>
+    </footer>
+
+</body>
+</html>
