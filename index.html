@@ -1,86 +1,134 @@
-<section id="menu" class="menu-section">
-  <h2>เมนูอาหาร / Menu</h2>
-  <div class="menu-grid">
-    
-    <!-- ข้าวซอยไก่ -->
-    <div class="menu-card">
-      <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&q=80" alt="ข้าวซอยไก่">
-      <h3>ข้าวซอยไก่</h3>
-      <p class="en-name">Khao Soi Chicken</p>
-      <p class="price">69 บาท</p>
-    </div>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanna Eats - อาหารเหนือต้นตำรับ</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+        header { background: #d35400; color: white; padding: 2rem; text-align: center; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; transition: 0.3s; }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 15px; }
+        .price { font-weight: bold; color: #d35400; }
+        .contact { text-align: center; margin-top: 40px; padding: 20px; background: #f4f4f4; border-radius: 8px; }
+        @media (max-width: 600px) { header { padding: 1rem; } }
+    </style>
+</head>
+<body>
 
-    <!-- ข้าวซอยเนื้อ -->
-    <div class="menu-card">
-      <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=500&q=80" alt="ข้าวซอยเนื้อ">
-      <h3>ข้าวซอยเนื้อ</h3>
-      <p class="en-name">Khao Soi Beef</p>
-      <p class="price">79 บาท</p>
-    </div>
+<header>
+    <h1>Lanna Eats</h1>
+    <p>สัมผัสรสชาติล้านนาแท้ ส่งตรงถึงบ้านคุณ</p>
+</header>
 
-    <!-- ข้าวซอยเจ -->
-    <div class="menu-card">
-      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80" alt="ข้าวซอยเจ">
-      <h3>ข้าวซอยเจ</h3>
-      <p class="en-name">Khao Soi Vegan</p>
-      <p class="price">69 บาท</p>
-    </div>
+<div class="container">
+    <section id="menu">
+        <h2>เมนูแนะนำ</h2>
+        <div class="menu-grid">
+            <!-- เมนูที่ 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=500&q=80" alt="ข้าวซอยไก่">
+                <div class="card-content">
+                    <h3>ข้าวซอยไก่</h3>
+                    <p>เส้นบะหมี่เหลืองในน้ำแกงกะหรี่สูตรเข้มข้น หอมเครื่องเทศ มาพร้อมน่องไก่นุ่มๆ</p>
+                    <p class="price">ราคา: 69 บาท</p>
+                </div>
+            </div>
+            <!-- เมนูที่ 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" alt="ข้าวซอยเนื้อ">
+                <div class="card-content">
+                    <h3>ข้าวซอยเนื้อ</h3>
+                    <p>ข้าวซอยน้ำแกงเข้มข้นเสิร์ฟพร้อมเนื้อวัวตุ๋นจนเปื่อยนุ่มละลายในปาก</p>
+                    <p class="price">ราคา: 79 บาท</p>
+                </div>
+            </div>
+            <!-- เมนูที่ 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="ข้าวซอยเจ">
+                <div class="card-content">
+                    <h3>ข้าวซอยเจ</h3>
+                    <p>ทางเลือกสำหรับสายสุขภาพ ด้วยเต้าหู้และผักสดนานาชนิดในน้ำแกงกะหรี่รสละมุน</p>
+                    <p class="price">ราคา: 69 บาท</p>
+                </div>
+            </div>
+            <!-- เมนูที่ 4 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" alt="ไส้อั่ว">
+                <div class="card-content">
+                    <h3>ไส้อั่ว</h3>
+                    <p>ไส้อั่วสมุนไพรสูตรต้นตำรับ ย่างจนหอมเครื่องเทศ รสชาติเผ็ดกำลังดี</p>
+                    <p class="price">ราคา: 49 บาท</p>
+                </div>
+            </div>
+            <!-- เมนูที่ 5 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=500&q=80" alt="แคบหมู">
+                <div class="card-content">
+                    <h3>แคบหมู</h3>
+                    <p>แคบหมูทอดใหม่กรอบอร่อย ทานคู่กับอาหารเหนือเมนูไหนก็เข้ากัน</p>
+                    <p class="price">ราคา: 39 บาท</p>
+                </div>
+            </div>
+            <!-- เมนูที่ 6 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80" alt="ข้าวซอยทะเล">
+                <div class="card-content">
+                    <h3>ข้าวซอยทะเล</h3>
+                    <p>ข้าวซอยฟิวชั่นจัดเต็มด้วยกุ้งและปลาหมึกสด ในน้ำแกงกะหรี่สูตรพิเศษ</p>
+                    <p class="price">ราคา: 99 บาท</p>
+                </div>
+            </div>
+            <!-- เมนูที่ 7 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=500&q=80" alt="ชาเย็น">
+                <div class="card-content">
+                    <h3>ชาเย็น</h3>
+                    <p>ชาไทยรสชาติกลมกล่อม หวานมันเย็นชื่นใจ ตัดกับความเผ็ดของอาหารเหนือได้ดีเยี่ยม</p>
+                    <p class="price">ราคา: 29 บาท</p>
+                </div>
+            </div>
+            <!-- เมนูที่ 8 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=500&q=80" alt="น้ำส้ม">
+                <div class="card-content">
+                    <h3>น้ำส้ม</h3>
+                    <p>น้ำส้มคั้นสดใหม่ ให้รสชาติหวานอมเปรี้ยว สดชื่นได้ทุกเวลา</p>
+                    <p class="price">ราคา: 35 บาท</p>
+                </div>
+            </div>
+            <!-- เมนูที่ 9 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?auto=format&fit=crop&w=500&q=80" alt="ขนมจีนน้ำเงี้ยว">
+                <div class="card-content">
+                    <h3>ขนมจีนน้ำเงี้ยว</h3>
+                    <p>ขนมจีนเส้นนุ่มในน้ำแกงมะเขือเทศและดอกงิ้ว รสชาติเปรี้ยวเผ็ดถึงเครื่อง</p>
+                    <p class="price">ราคา: 59 บาท</p>
+                </div>
+            </div>
+            <!-- เมนูที่ 10 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=500&q=80" alt="ข้าวเหนียว">
+                <div class="card-content">
+                    <h3>ข้าวเหนียว</h3>
+                    <p>ข้าวเหนียวนึ่งร้อนๆ เหนียวนุ่ม เป็นหัวใจหลักของอาหารเหนือ</p>
+                    <p class="price">ราคา: 15 บาท</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- ไส้อั่ว -->
-    <div class="menu-card">
-      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&q=80" alt="ไส้อั่ว">
-      <h3>ไส้อั่ว</h3>
-      <p class="en-name">Sai Ua Sausage</p>
-      <p class="price">49 บาท</p>
-    </div>
+    <section class="contact">
+        <h2>ช่องทางสั่งซื้อ / ติดต่อ</h2>
+        <p>สามารถสั่งอาหารหรือสอบถามเพิ่มเติมได้ที่:</p>
+        <p><strong>LINE OA:</strong> @LannaEats (ใส่ลิงก์ของคุณที่นี่)</p>
+        <p><strong>โทร:</strong> 0XX-XXX-XXXX</p>
+    </section>
+</div>
 
-    <!-- แคบหมู -->
-    <div class="menu-card">
-      <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?w=500&q=80" alt="แคบหมู">
-      <h3>แคบหมู</h3>
-      <p class="en-name">Pork Crackling</p>
-      <p class="price">39 บาท</p>
-    </div>
-
-    <!-- ข้าวซอยทะเล -->
-    <div class="menu-card">
-      <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500&q=80" alt="ข้าวซอยทะเล">
-      <h3>ข้าวซอยทะเล</h3>
-      <p class="en-name">Khao Soi Seafood</p>
-      <p class="price">99 บาท</p>
-    </div>
-
-    <!-- ชาเย็น -->
-    <div class="menu-card">
-      <img src="https://images.unsplash.com/photo-1558857563-b371033873b8?w=500&q=80" alt="ชาเย็น">
-      <h3>ชาเย็น</h3>
-      <p class="en-name">Thai Iced Tea</p>
-      <p class="price">29 บาท</p>
-    </div>
-
-    <!-- น้ำส้ม -->
-    <div class="menu-card">
-      <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?w=500&q=80" alt="น้ำส้ม">
-      <h3>น้ำส้ม</h3>
-      <p class="en-name">Orange Juice</p>
-      <p class="price">35 บาท</p>
-    </div>
-
-    <!-- ขนมจีนน้ำเงี้ยว -->
-    <div class="menu-card">
-      <img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=500&q=80" alt="ขนมจีนน้ำเงี้ยว">
-      <h3>ขนมจีนน้ำเงี้ยว</h3>
-      <p class="en-name">Khanom Jeen Nam Ngiao</p>
-      <p class="price">59 บาท</p>
-    </div>
-
-    <!-- ข้าวเหนียว -->
-    <div class="menu-card">
-      <img src="https://images.unsplash.com/photo-1516684732162-798a0062be99?w=500&q=80" alt="ข้าวเหนียว">
-      <h3>ข้าวเหนียว</h3>
-      <p class="en-name">Sticky Rice</p>
-      <p class="price">15 บาท</p>
-    </div>
-
-  </div>
-</section>
+</body>
+</html>
