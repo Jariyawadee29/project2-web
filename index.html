@@ -1,1302 +1,1114 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Lanna Eats | อาหารเหนือสไตล์ล้านนา</title>
-
-    <style>
-
-        /* =========================
-           RESET
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 75px;
-        }
-
-        body {
-            font-family: Arial, "Noto Sans Thai", sans-serif;
-            background: #fff8ed;
-            color: #3b261b;
-            line-height: 1.6;
-        }
-
-        img {
-            width: 100%;
-            display: block;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        .container {
-            width: 92%;
-            max-width: 1180px;
-            margin: auto;
-        }
-
-
-        /* =========================
-           NAVBAR
-        ========================= */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            background: #24150d;
-            color: white;
-
-            border-bottom: 1px solid #c99532;
-        }
-
-        .nav-inner {
-            height: 70px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: 800;
-            color: #e8b449;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            font-weight: 600;
-        }
-
-        .nav-links a:hover {
-            color: #e8b449;
-        }
-
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 570px;
-
-            display: flex;
-            align-items: center;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(35, 18, 10, 0.92),
-                    rgba(35, 18, 10, 0.52)
-                ),
-                url("images/hero.jpg");
-
-            background-position: center;
-            background-size: cover;
-
-            color: white;
-        }
-
-        .hero-content {
-            padding: 90px 0;
-            max-width: 680px;
-        }
-
-        .kicker {
-            color: #f1b83d;
-
-            font-weight: 800;
-            letter-spacing: 2px;
-
-            margin-bottom: 12px;
-        }
-
-        .hero h1 {
-            font-size: clamp(44px, 7vw, 78px);
-
-            line-height: 1.05;
-
-            margin-bottom: 16px;
-        }
-
-        .hero h2 {
-            font-size: clamp(22px, 3vw, 34px);
-
-            color: #f2bd4b;
-
-            margin-bottom: 18px;
-        }
-
-        .hero p {
-            font-size: 18px;
-
-            max-width: 620px;
-
-            margin-bottom: 28px;
-        }
-
-        .btn {
-            display: inline-block;
-
-            padding: 13px 25px;
-
-            border-radius: 30px;
-
-            background: #e8ad35;
-            color: #28180e;
-
-            font-weight: 800;
-
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #ffd16a;
-
-            transform: translateY(-2px);
-        }
-
-
-        /* =========================
-           SECTION
-        ========================= */
-
-        section {
-            padding: 80px 0;
-        }
-
-        .section-head {
-            text-align: center;
-
-            margin-bottom: 38px;
-        }
-
-        .section-head .label {
-            color: #a55b2f;
-
-            font-weight: 800;
-
-            letter-spacing: 2px;
-        }
-
-        .section-head h2 {
-            font-size: 40px;
-
-            margin: 7px 0;
-        }
-
-        .section-head p {
-            color: #75675d;
-        }
-
-
-        /* =========================
-           MENU
-        ========================= */
-
-        .menu-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(5, 1fr);
-
-            gap: 18px;
-        }
-
-        .card {
-            background: white;
-
-            border: 1px solid #eadbc5;
-
-            border-radius: 14px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 6px 18px rgba(65, 38, 18, 0.08);
-
-            transition: 0.25s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 12px 25px rgba(65, 38, 18, 0.15);
-        }
-
-        .card img {
-            height: 170px;
-
-            object-fit: cover;
-        }
-
-        .card-body {
-            padding: 16px;
-        }
-
-        .card h3 {
-            font-size: 19px;
-
-            margin-bottom: 2px;
-        }
-
-        .en {
-            font-size: 13px;
-
-            color: #a06a4d;
-
-            margin-bottom: 10px;
-        }
-
-        .desc {
-            font-size: 14px;
-
-            color: #6e6259;
-
-            min-height: 48px;
-        }
-
-        .price {
-            font-size: 21px;
-
-            font-weight: 800;
-
-            color: #a94f25;
-
-            margin-top: 12px;
-        }
-
-        .order {
-            display: inline-block;
-
-            margin-top: 10px;
-
-            padding: 7px 13px;
-
-            border-radius: 18px;
-
-            background: #8d4929;
-            color: white;
-
-            font-size: 13px;
-
-            font-weight: 700;
-        }
-
-        .order:hover {
-            background: #b8663b;
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about {
-            background: #f1e2cd;
-        }
-
-        .about-grid {
-            display: grid;
-
-            grid-template-columns:
-                1fr 1.2fr;
-
-            gap: 45px;
-
-            align-items: center;
-        }
-
-        .about-grid img {
-            height: 330px;
-
-            object-fit: cover;
-
-            border-radius: 18px;
-        }
-
-        .about h2 {
-            font-size: 38px;
-
-            margin-bottom: 15px;
-        }
-
-        .about p {
-            color: #685c52;
-
-            margin-bottom: 12px;
-        }
-
-
-        /* =========================
-           ORDER
-        ========================= */
-
-        .order-section {
-            background: #2b180e;
-
-            color: white;
-
-            text-align: center;
-        }
-
-        .order-section h2 {
-            font-size: 38px;
-        }
-
-        .order-section p {
-            color: #d9c9bb;
-
-            margin: 8px 0 22px;
-        }
-
-        .contact {
-            display: flex;
-
-            justify-content: center;
-
-            gap: 15px;
-
-            flex-wrap: wrap;
-
-            margin-top: 22px;
-        }
-
-        .contact a {
-            min-width: 190px;
-
-            padding: 13px 18px;
-
-            border: 1px solid #8d6947;
-
-            border-radius: 10px;
-
-            color: white;
-
-            background: #3b2417;
-        }
-
-        .contact a:hover {
-            background: #513222;
-        }
-
-        .contact small {
-            display: block;
-
-            color: #d5bfae;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: #1a0f09;
-
-            color: white;
-
-            text-align: center;
-
-            padding: 26px;
-        }
-
-        footer .logo {
-            margin-bottom: 5px;
-        }
-
-        footer p {
-            color: #bca99a;
-
-            font-size: 13px;
-        }
-
-
-        /* =========================
-           TABLET
-        ========================= */
-
-        @media (max-width: 1000px) {
-
-            .menu-grid {
-                grid-template-columns:
-                    repeat(3, 1fr);
-            }
-
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            .nav-inner {
-                height: 60px;
-            }
-
-            .nav-links {
-                gap: 12px;
-
-                font-size: 13px;
-            }
-
-            .hero {
-                min-height: 600px;
-            }
-
-            .hero-content {
-                padding: 70px 0;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .menu-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-
-        /* =========================
-           SMALL MOBILE
-        ========================= */
-
-        @media (max-width: 480px) {
-
-            .logo {
-                font-size: 20px;
-            }
-
-            .nav-links {
-                gap: 8px;
-
-                font-size: 11px;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .card img {
-                height: 220px;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lanna Eats | อาหารเหนือสไตล์ล้านนา</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:75px;
+}
+
+body{
+    font-family:Arial,"Noto Sans Thai",sans-serif;
+    background:#fff8ed;
+    color:#3b261b;
+    line-height:1.6;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    width:92%;
+    max-width:1180px;
+    margin:auto;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#24150d;
+    color:white;
+    border-bottom:1px solid #c99532;
+}
+
+.nav-inner{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+    color:#e8b449;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:white;
+    font-weight:600;
+}
+
+.nav-links a:hover{
+    color:#e8b449;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:570px;
+    display:flex;
+    align-items:center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(35,18,10,.92),
+            rgba(35,18,10,.52)
+        ),
+        url("data:image/jpeg;base64,ใส่ข้อมูลรูป-HERO-BASE64-ตรงนี้");
+
+    background-position:center;
+    background-size:cover;
+
+    color:white;
+}
+
+.hero-content{
+    padding:90px 0;
+    max-width:680px;
+}
+
+.kicker{
+    color:#f1b83d;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+.hero h1{
+    font-size:clamp(44px,7vw,78px);
+    line-height:1.05;
+    margin-bottom:16px;
+}
+
+.hero h2{
+    font-size:clamp(22px,3vw,34px);
+    color:#f2bd4b;
+    margin-bottom:18px;
+}
+
+.hero p{
+    font-size:18px;
+    max-width:620px;
+    margin-bottom:28px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 25px;
+    border-radius:30px;
+    background:#e8ad35;
+    color:#28180e;
+    font-weight:800;
+}
+
+.btn:hover{
+    background:#ffd16a;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    padding:80px 0;
+}
+
+.section-head{
+    text-align:center;
+    margin-bottom:38px;
+}
+
+.section-head .label{
+    color:#a55b2f;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.section-head h2{
+    font-size:40px;
+    margin:7px 0;
+}
+
+.section-head p{
+    color:#75675d;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:18px;
+}
+
+.card{
+    background:white;
+    border:1px solid #eadbc5;
+    border-radius:14px;
+    overflow:hidden;
+
+    box-shadow:
+        0 6px 18px rgba(65,38,18,.08);
+
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    height:170px;
+    object-fit:cover;
+}
+
+.card-body{
+    padding:16px;
+}
+
+.card h3{
+    font-size:19px;
+    margin-bottom:2px;
+}
+
+.en{
+    font-size:13px;
+    color:#a06a4d;
+    margin-bottom:10px;
+}
+
+.desc{
+    font-size:14px;
+    color:#6e6259;
+    min-height:48px;
+}
+
+.price{
+    font-size:21px;
+    font-weight:800;
+    color:#a94f25;
+    margin-top:12px;
+}
+
+.order{
+    display:inline-block;
+    margin-top:10px;
+    padding:7px 13px;
+    border-radius:18px;
+    background:#8d4929;
+    color:white;
+    font-size:13px;
+    font-weight:700;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    background:#f1e2cd;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:45px;
+    align-items:center;
+}
+
+.about-grid img{
+    height:330px;
+    object-fit:cover;
+    border-radius:18px;
+}
+
+.about h2{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.about p{
+    color:#685c52;
+    margin-bottom:12px;
+}
+
+
+/* =========================
+   ORDER
+========================= */
+
+.order-section{
+    background:#2b180e;
+    color:white;
+    text-align:center;
+}
+
+.order-section h2{
+    font-size:38px;
+}
+
+.order-section p{
+    color:#d9c9bb;
+    margin:8px 0 22px;
+}
+
+.contact{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:22px;
+}
+
+.contact a{
+    min-width:190px;
+    padding:13px 18px;
+    border:1px solid #8d6947;
+    border-radius:10px;
+    color:white;
+    background:#3b2417;
+}
+
+.contact small{
+    display:block;
+    color:#d5bfae;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#1a0f09;
+    color:white;
+    text-align:center;
+    padding:26px;
+}
+
+footer p{
+    color:#bca99a;
+    font-size:13px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+    .menu-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    .nav-inner{
+        height:60px;
+    }
+
+    .nav-links{
+        gap:12px;
+        font-size:13px;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    section{
+        padding:60px 0;
+    }
+
+    .menu-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .logo{
+        font-size:20px;
+    }
+
+    .nav-links{
+        gap:8px;
+        font-size:11px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .menu-grid{
+        grid-template-columns:1fr;
+    }
+
+    .card img{
+        height:220px;
+    }
+
+}
+</style>
 </head>
 
 
 <body>
 
 
-<!-- =========================================
-     NAVIGATION
-========================================= -->
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <nav>
 
-    <div class="container nav-inner">
+<div class="container nav-inner">
 
-        <div class="logo">
-            ✦ Lanna Eats
-        </div>
+<div class="logo">
+✦ Lanna Eats
+</div>
 
-        <ul class="nav-links">
+<ul class="nav-links">
 
-            <li>
-                <a href="#home">
-                    หน้าหลัก
-                </a>
-            </li>
+<li>
+<a href="#home">หน้าหลัก</a>
+</li>
 
-            <li>
-                <a href="#menu">
-                    เมนูอาหาร
-                </a>
-            </li>
+<li>
+<a href="#menu">เมนูอาหาร</a>
+</li>
 
-            <li>
-                <a href="#about">
-                    เกี่ยวกับเรา
-                </a>
-            </li>
+<li>
+<a href="#about">เกี่ยวกับเรา</a>
+</li>
 
-            <li>
-                <a href="#order">
-                    สั่งอาหาร
-                </a>
-            </li>
+<li>
+<a href="#order">สั่งอาหาร</a>
+</li>
 
-        </ul>
+</ul>
 
-    </div>
+</div>
 
 </nav>
 
 
 
-<!-- =========================================
+<!-- =========================
      HERO
-========================================= -->
+========================= -->
 
 <section class="hero" id="home">
 
-    <div class="container">
+<div class="container">
 
-        <div class="hero-content">
+<div class="hero-content">
 
-            <div class="kicker">
-                AUTHENTIC NORTHERN THAI FOOD
-            </div>
+<div class="kicker">
+AUTHENTIC NORTHERN THAI FOOD
+</div>
 
-            <h1>
-                Lanna Eats
-            </h1>
+<h1>
+Lanna Eats
+</h1>
 
-            <h2>
-                อร่อยแบบล้านนา
-                ส่งตรงถึงคุณ
-            </h2>
+<h2>
+อร่อยแบบล้านนา
+ส่งตรงถึงคุณ
+</h2>
 
-            <p>
-                สัมผัสรสชาติอาหารเหนือแบบต้นตำรับ
-                คัดสรรวัตถุดิบคุณภาพดี
-                ปรุงสดใหม่ทุกวัน
-            </p>
+<p>
+สัมผัสรสชาติอาหารเหนือแบบต้นตำรับ
+คัดสรรวัตถุดิบคุณภาพดี
+ปรุงสดใหม่ทุกวัน
+</p>
 
-            <a
-                class="btn"
-                href="#menu"
-            >
-                ดูเมนูอาหาร
-            </a>
+<a
+href="#menu"
+class="btn">
+ดูเมนูอาหาร
+</a>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
 
-<!-- =========================================
+<!-- =========================
      MENU
-========================================= -->
+========================= -->
 
 <section id="menu">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-head">
+<div class="section-head">
 
-            <div class="label">
-                OUR MENU
-            </div>
+<div class="label">
+OUR MENU
+</div>
 
-            <h2>
-                เมนูอาหารแนะนำ
-            </h2>
+<h2>
+เมนูอาหารแนะนำ
+</h2>
 
-            <p>
-                อาหารและเครื่องดื่มรสชาติต้นตำรับล้านนา
-            </p>
+<p>
+อาหารและเครื่องดื่มรสชาติต้นตำรับล้านนา
+</p>
 
-        </div>
+</div>
 
 
-        <div class="menu-grid">
+<div class="menu-grid">
 
 
-            <!-- =================================
-                 MENU 01
-            ================================== -->
+<!-- 1 -->
 
-            <article class="card">
+<article class="card">
 
-                <img
-                    src="images/menu01.jpg"
-                    alt="ข้าวซอยไก่"
-                >
+<img
+src="data:image/jpeg;base64,ใส่ข้อมูลรูป-menu01-BASE64"
+alt="ข้าวซอยไก่">
 
-                <div class="card-body">
+<div class="card-body">
 
-                    <h3>
-                        ข้าวซอยไก่
-                    </h3>
+<h3>
+ข้าวซอยไก่
+</h3>
 
-                    <div class="en">
-                        Khao Soi Chicken
-                    </div>
+<div class="en">
+Khao Soi Chicken
+</div>
 
-                    <div class="desc">
-                        ข้าวซอยไก่รสเข้มข้น
-                        หอมเครื่องแกงแบบล้านนา
-                    </div>
+<div class="desc">
+ข้าวซอยไก่รสเข้มข้น
+หอมเครื่องแกงแบบล้านนา
+</div>
 
-                    <div class="price">
-                        ฿69
-                    </div>
+<div class="price">
+฿69
+</div>
 
-                    <a
-                        class="order"
-                        href="#order"
-                    >
-                        สั่งเลย
-                    </a>
+<a
+href="#order"
+class="order">
+สั่งเลย
+</a>
 
-                </div>
+</div>
 
-            </article>
+</article>
 
 
 
-            <!-- =================================
-                 MENU 02
-            ================================== -->
+<!-- 2 -->
 
-            <article class="card">
+<article class="card">
 
-                <img
-                    src="images/menu02.jpg"
-                    alt="ข้าวซอยเนื้อ"
-                >
+<img
+src="data:image/jpeg;base64,ใส่ข้อมูลรูป-menu02-BASE64"
+alt="ข้าวซอยเนื้อ">
 
-                <div class="card-body">
+<div class="card-body">
 
-                    <h3>
-                        ข้าวซอยเนื้อ
-                    </h3>
+<h3>
+ข้าวซอยเนื้อ
+</h3>
 
-                    <div class="en">
-                        Khao Soi Beef
-                    </div>
+<div class="en">
+Khao Soi Beef
+</div>
 
-                    <div class="desc">
-                        ข้าวซอยเนื้อรสเข้มข้น
-                        เสิร์ฟพร้อมเนื้อนุ่ม
-                    </div>
+<div class="desc">
+ข้าวซอยเนื้อรสเข้มข้น
+เสิร์ฟพร้อมเนื้อนุ่ม
+</div>
 
-                    <div class="price">
-                        ฿79
-                    </div>
+<div class="price">
+฿79
+</div>
 
-                    <a
-                        class="order"
-                        href="#order"
-                    >
-                        สั่งเลย
-                    </a>
+<a
+href="#order"
+class="order">
+สั่งเลย
+</a>
 
-                </div>
+</div>
 
-            </article>
+</article>
 
 
 
-            <!-- =================================
-                 MENU 03
-            ================================== -->
+<!-- 3 -->
 
-            <article class="card">
+<article class="card">
 
-                <img
-                    src="images/menu03.jpg"
-                    alt="ข้าวซอยเจ"
-                >
+<img
+src="data:image/jpeg;base64,ใส่ข้อมูลรูป-menu03-BASE64"
+alt="ข้าวซอยเจ">
 
-                <div class="card-body">
+<div class="card-body">
 
-                    <h3>
-                        ข้าวซอยเจ
-                    </h3>
+<h3>
+ข้าวซอยเจ
+</h3>
 
-                    <div class="en">
-                        Khao Soi Vegan
-                    </div>
+<div class="en">
+Khao Soi Vegan
+</div>
 
-                    <div class="desc">
-                        ข้าวซอยสูตรเจ
-                        สำหรับผู้ที่รับประทานอาหารเจ
-                    </div>
+<div class="desc">
+ข้าวซอยสูตรเจ
+สำหรับผู้ที่รับประทานอาหารเจ
+</div>
 
-                    <div class="price">
-                        ฿69
-                    </div>
+<div class="price">
+฿69
+</div>
 
-                    <a
-                        class="order"
-                        href="#order"
-                    >
-                        สั่งเลย
-                    </a>
+<a
+href="#order"
+class="order">
+สั่งเลย
+</a>
 
-                </div>
+</div>
 
-            </article>
+</article>
 
 
 
-            <!-- =================================
-                 MENU 04
-            ================================== -->
+<!-- 4 -->
 
-            <article class="card">
+<article class="card">
 
-                <img
-                    src="images/menu04.jpg"
-                    alt="ไส้อั่ว"
-                >
+<img
+src="data:image/jpeg;base64,ใส่ข้อมูลรูป-menu04-BASE64"
+alt="ไส้อั่ว">
 
-                <div class="card-body">
+<div class="card-body">
 
-                    <h3>
-                        ไส้อั่ว
-                    </h3>
+<h3>
+ไส้อั่ว
+</h3>
 
-                    <div class="en">
-                        Sai Ua Sausage
-                    </div>
+<div class="en">
+Sai Ua Sausage
+</div>
 
-                    <div class="desc">
-                        ไส้อั่วสมุนไพร
-                        หอมเครื่องเทศแบบอาหารเหนือ
-                    </div>
+<div class="desc">
+ไส้อั่วสมุนไพร
+หอมเครื่องเทศแบบอาหารเหนือ
+</div>
 
-                    <div class="price">
-                        ฿49
-                    </div>
+<div class="price">
+฿49
+</div>
 
-                    <a
-                        class="order"
-                        href="#order"
-                    >
-                        สั่งเลย
-                    </a>
+<a
+href="#order"
+class="order">
+สั่งเลย
+</a>
 
-                </div>
+</div>
 
-            </article>
+</article>
 
 
 
-            <!-- =================================
-                 MENU 05
-            ================================== -->
+<!-- 5 -->
 
-            <article class="card">
+<article class="card">
 
-                <img
-                    src="images/menu05.jpg"
-                    alt="แคบหมู"
-                >
+<img
+src="data:image/jpeg;base64,ใส่ข้อมูลรูป-menu05-BASE64"
+alt="แคบหมู">
 
-                <div class="card-body">
+<div class="card-body">
 
-                    <h3>
-                        แคบหมู
-                    </h3>
+<h3>
+แคบหมู
+</h3>
 
-                    <div class="en">
-                        Pork Crackling
-                    </div>
+<div class="en">
+Pork Crackling
+</div>
 
-                    <div class="desc">
-                        แคบหมูกรอบ
-                        ทานคู่กับน้ำพริกหรือเมนูโปรด
-                    </div>
+<div class="desc">
+แคบหมูกรอบ
+ทานคู่กับน้ำพริกหรือเมนูโปรด
+</div>
 
-                    <div class="price">
-                        ฿39
-                    </div>
+<div class="price">
+฿39
+</div>
 
-                    <a
-                        class="order"
-                        href="#order"
-                    >
-                        สั่งเลย
-                    </a>
+<a
+href="#order"
+class="order">
+สั่งเลย
+</a>
 
-                </div>
+</div>
 
-            </article>
+</article>
 
 
 
-            <!-- =================================
-                 MENU 06
-            ================================== -->
+<!-- 6 -->
 
-            <article class="card">
+<article class="card">
 
-                <img
-                    src="images/menu06.jpg"
-                    alt="ข้าวซอยทะเล"
-                >
+<img
+src="data:image/jpeg;base64,ใส่ข้อมูลรูป-menu06-BASE64"
+alt="ข้าวซอยทะเล">
 
-                <div class="card-body">
+<div class="card-body">
 
-                    <h3>
-                        ข้าวซอยทะเล
-                    </h3>
+<h3>
+ข้าวซอยทะเล
+</h3>
 
-                    <div class="en">
-                        Khao Soi Seafood
-                    </div>
+<div class="en">
+Khao Soi Seafood
+</div>
 
-                    <div class="desc">
-                        ข้าวซอยพร้อมอาหารทะเล
-                        รสเข้มข้นแบบล้านนา
-                    </div>
+<div class="desc">
+ข้าวซอยพร้อมอาหารทะเล
+รสเข้มข้นแบบล้านนา
+</div>
 
-                    <div class="price">
-                        ฿99
-                    </div>
+<div class="price">
+฿99
+</div>
 
-                    <a
-                        class="order"
-                        href="#order"
-                    >
-                        สั่งเลย
-                    </a>
+<a
+href="#order"
+class="order">
+สั่งเลย
+</a>
 
-                </div>
+</div>
 
-            </article>
+</article>
 
 
 
-            <!-- =================================
-                 MENU 07
-            ================================== -->
+<!-- 7 -->
 
-            <article class="card">
+<article class="card">
 
-                <img
-                    src="images/menu07.jpg"
-                    alt="ชาเย็น"
-                >
+<img
+src="data:image/jpeg;base64,ใส่ข้อมูลรูป-menu07-BASE64"
+alt="ชาเย็น">
 
-                <div class="card-body">
+<div class="card-body">
 
-                    <h3>
-                        ชาเย็น
-                    </h3>
+<h3>
+ชาเย็น
+</h3>
 
-                    <div class="en">
-                        Thai Iced Tea
-                    </div>
+<div class="en">
+Thai Iced Tea
+</div>
 
-                    <div class="desc">
-                        ชาไทยเย็น หอมหวาน
-                        ดื่มคู่กับอาหารได้อย่างลงตัว
-                    </div>
+<div class="desc">
+ชาไทยเย็น หอมหวาน
+ดื่มคู่กับอาหารได้อย่างลงตัว
+</div>
 
-                    <div class="price">
-                        ฿29
-                    </div>
+<div class="price">
+฿29
+</div>
 
-                    <a
-                        class="order"
-                        href="#order"
-                    >
-                        สั่งเลย
-                    </a>
+<a
+href="#order"
+class="order">
+สั่งเลย
+</a>
 
-                </div>
+</div>
 
-            </article>
+</article>
 
 
 
-            <!-- =================================
-                 MENU 08
-            ================================== -->
+<!-- 8 -->
 
-            <article class="card">
+<article class="card">
 
-                <img
-                    src="images/menu08.jpg"
-                    alt="น้ำส้ม"
-                >
+<img
+src="data:image/jpeg;base64,ใส่ข้อมูลรูป-menu08-BASE64"
+alt="น้ำส้ม">
 
-                <div class="card-body">
+<div class="card-body">
 
-                    <h3>
-                        น้ำส้ม
-                    </h3>
+<h3>
+น้ำส้ม
+</h3>
 
-                    <div class="en">
-                        Orange Juice
-                    </div>
+<div class="en">
+Orange Juice
+</div>
 
-                    <div class="desc">
-                        น้ำส้มรสสดชื่น
-                        เหมาะสำหรับดื่มคู่กับมื้ออาหาร
-                    </div>
+<div class="desc">
+น้ำส้มรสสดชื่น
+เหมาะสำหรับดื่มคู่กับมื้ออาหาร
+</div>
 
-                    <div class="price">
-                        ฿35
-                    </div>
+<div class="price">
+฿35
+</div>
 
-                    <a
-                        class="order"
-                        href="#order"
-                    >
-                        สั่งเลย
-                    </a>
+<a
+href="#order"
+class="order">
+สั่งเลย
+</a>
 
-                </div>
+</div>
 
-            </article>
+</article>
 
 
 
-            <!-- =================================
-                 MENU 09
-            ================================== -->
+<!-- 9 -->
 
-            <article class="card">
+<article class="card">
 
-                <img
-                    src="images/menu09.jpg"
-                    alt="ขนมจีนน้ำเงี้ยว"
-                >
+<img
+src="data:image/jpeg;base64,ใส่ข้อมูลรูป-menu09-BASE64"
+alt="ขนมจีนน้ำเงี้ยว">
 
-                <div class="card-body">
+<div class="card-body">
 
-                    <h3>
-                        ขนมจีนน้ำเงี้ยว
-                    </h3>
+<h3>
+ขนมจีนน้ำเงี้ยว
+</h3>
 
-                    <div class="en">
-                        Khanom Jeen Nam Ngiao
-                    </div>
+<div class="en">
+Khanom Jeen Nam Ngiao
+</div>
 
-                    <div class="desc">
-                        ขนมจีนน้ำเงี้ยว
-                        เมนูอาหารเหนือรสกลมกล่อม
-                    </div>
+<div class="desc">
+ขนมจีนน้ำเงี้ยว
+เมนูอาหารเหนือรสกลมกล่อม
+</div>
 
-                    <div class="price">
-                        ฿59
-                    </div>
+<div class="price">
+฿59
+</div>
 
-                    <a
-                        class="order"
-                        href="#order"
-                    >
-                        สั่งเลย
-                    </a>
+<a
+href="#order"
+class="order">
+สั่งเลย
+</a>
 
-                </div>
+</div>
 
-            </article>
+</article>
 
 
 
-            <!-- =================================
-                 MENU 10
-            ================================== -->
+<!-- 10 -->
 
-            <article class="card">
+<article class="card">
 
-                <img
-                    src="images/menu10.jpg"
-                    alt="ข้าวเหนียว"
-                >
+<img
+src="data:image/jpeg;base64,ใส่ข้อมูลรูป-menu10-BASE64"
+alt="ข้าวเหนียว">
 
-                <div class="card-body">
+<div class="card-body">
 
-                    <h3>
-                        ข้าวเหนียว
-                    </h3>
+<h3>
+ข้าวเหนียว
+</h3>
 
-                    <div class="en">
-                        Sticky Rice
-                    </div>
+<div class="en">
+Sticky Rice
+</div>
 
-                    <div class="desc">
-                        ข้าวเหนียวร้อน ๆ
-                        เหมาะสำหรับรับประทานคู่กับอาหารเหนือ
-                    </div>
+<div class="desc">
+ข้าวเหนียวร้อน ๆ
+เหมาะสำหรับรับประทานคู่กับอาหารเหนือ
+</div>
 
-                    <div class="price">
-                        ฿15
-                    </div>
+<div class="price">
+฿15
+</div>
 
-                    <a
-                        class="order"
-                        href="#order"
-                    >
-                        สั่งเลย
-                    </a>
+<a
+href="#order"
+class="order">
+สั่งเลย
+</a>
 
-                </div>
+</div>
 
-            </article>
+</article>
 
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
 
-<!-- =========================================
+<!-- =========================
      ABOUT
-========================================= -->
-
-<section class="about" id="about">
-
-    <div class="container about-grid">
-
-        <img
-            src="images/about.jpg"
-            alt="บรรยากาศล้านนา"
-        >
-
-        <div>
-
-            <h2>
-                เกี่ยวกับ Lanna Eats
-            </h2>
-
-            <p>
-                Lanna Eats ตั้งใจนำเสนออาหารเหนือ
-                ในรูปแบบที่เข้าถึงง่าย
-                เหมาะสำหรับทั้งคนที่ชอบอาหารเหนือ
-                และผู้ที่อยากลองรสชาติแบบล้านนา
-            </p>
-
-            <p>
-                เราคัดสรรเมนูยอดนิยม เช่น ข้าวซอย
-                ไส้อั่ว แคบหมู และขนมจีนน้ำเงี้ยว
-                พร้อมเครื่องดื่มที่รับประทานคู่กัน
-                ได้อย่างลงตัว
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
-     ORDER
-========================================= -->
+========================= -->
 
 <section
-    class="order-section"
-    id="order"
->
+class="about"
+id="about">
 
-    <div class="container">
+<div class="container about-grid">
 
-        <h2>
-            สั่งอาหาร / ติดต่อเรา
-        </h2>
+<img
+src="data:image/jpeg;base64,ใส่ข้อมูลรูป-about-BASE64"
+alt="บรรยากาศล้านนา">
 
-        <p>
-            สั่งง่าย ๆ ได้หลายช่องทาง
-        </p>
+<div>
 
+<h2>
+เกี่ยวกับ Lanna Eats
+</h2>
 
-        <div class="contact">
+<p>
+Lanna Eats ตั้งใจนำเสนออาหารเหนือ
+ในรูปแบบที่เข้าถึงง่าย
+เหมาะสำหรับทั้งคนที่ชอบอาหารเหนือ
+และผู้ที่อยากลองรสชาติแบบล้านนา
+</p>
 
+<p>
+เราคัดสรรเมนูยอดนิยม เช่น ข้าวซอย
+ไส้อั่ว แคบหมู และขนมจีนน้ำเงี้ยว
+พร้อมเครื่องดื่มที่รับประทานคู่กัน
+ได้อย่างลงตัว
+</p>
 
-            <!-- LINE -->
+</div>
 
-            <a
-                href="https://line.me/"
-                target="_blank"
-            >
-
-                LINE
-
-                <br>
-
-                <strong>
-                    @lannaeats
-                </strong>
-
-                <small>
-                    ติดต่อสั่งอาหาร
-                </small>
-
-            </a>
-
-
-
-            <!-- FACEBOOK -->
-
-            <a
-                href="https://www.facebook.com/"
-                target="_blank"
-            >
-
-                Facebook
-
-                <br>
-
-                <strong>
-                    Lanna Eats
-                </strong>
-
-                <small>
-                    ส่งข้อความ
-                </small>
-
-            </a>
-
-
-
-            <!-- PHONE -->
-
-            <a
-                href="tel:0812345678"
-            >
-
-                โทรสั่งอาหาร
-
-                <br>
-
-                <strong>
-                    081-234-5678
-                </strong>
-
-                <small>
-                    08:00 - 20:00 น.
-                </small>
-
-            </a>
-
-
-
-            <!-- GOOGLE FORM -->
-
-            <a
-                href="https://forms.google.com/"
-                target="_blank"
-            >
-
-                Google Form
-
-                <br>
-
-                <strong>
-                    สั่งอาหารออนไลน์
-                </strong>
-
-                <small>
-                    กรอกแบบฟอร์ม
-                </small>
-
-            </a>
-
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
 
-<!-- =========================================
+<!-- =========================
+     ORDER
+========================= -->
+
+<section
+class="order-section"
+id="order">
+
+<div class="container">
+
+<h2>
+สั่งอาหาร / ติดต่อเรา
+</h2>
+
+<p>
+สั่งง่าย ๆ ได้หลายช่องทาง
+</p>
+
+<div class="contact">
+
+
+<a
+href="https://line.me/"
+target="_blank">
+
+LINE
+
+<br>
+
+<strong>
+@lannaeats
+</strong>
+
+<small>
+ติดต่อสั่งอาหาร
+</small>
+
+</a>
+
+
+<a
+href="https://www.facebook.com/"
+target="_blank">
+
+Facebook
+
+<br>
+
+<strong>
+Lanna Eats
+</strong>
+
+<small>
+ส่งข้อความ
+</small>
+
+</a>
+
+
+<a
+href="tel:0812345678">
+
+โทรสั่งอาหาร
+
+<br>
+
+<strong>
+081-234-5678
+</strong>
+
+<small>
+08:00 - 20:00 น.
+</small>
+
+</a>
+
+
+<a
+href="https://forms.google.com/"
+target="_blank">
+
+Google Form
+
+<br>
+
+<strong>
+สั่งอาหารออนไลน์
+</strong>
+
+<small>
+กรอกแบบฟอร์ม
+</small>
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
      FOOTER
-========================================= -->
+========================= -->
 
 <footer>
 
-    <div class="logo">
-        Lanna Eats
-    </div>
+<div class="logo">
+Lanna Eats
+</div>
 
-    <p>
-        อร่อยแบบล้านนา ส่งถึงคุณ
-    </p>
+<p>
+อร่อยแบบล้านนา ส่งถึงคุณ
+</p>
 
-    <p>
-        © 2026 Lanna Eats. All Rights Reserved.
-    </p>
+<p>
+© 2026 Lanna Eats. All Rights Reserved.
+</p>
 
 </footer>
 
 
-
-<!-- =========================================
-     JAVASCRIPT
-========================================= -->
-
 <script>
 
-    /*
-        ป้องกัน Browser
-        จำตำแหน่ง Scroll เดิม
-    */
+/* ป้องกันเว็บเปิดแล้วเลื่อนไปตำแหน่งเดิม */
 
-    if ("scrollRestoration" in history) {
+if ("scrollRestoration" in history) {
 
-        history.scrollRestoration = "manual";
+    history.scrollRestoration = "manual";
+
+}
+
+window.addEventListener("load", function(){
+
+    if (!window.location.hash) {
+
+        window.scrollTo(0,0);
 
     }
 
-
-    /*
-        เปิดเว็บใหม่ให้เริ่มด้านบน
-    */
-
-    window.addEventListener("load", function () {
-
-        if (!window.location.hash) {
-
-            window.scrollTo(0, 0);
-
-        }
-
-    });
+});
 
 </script>
 
