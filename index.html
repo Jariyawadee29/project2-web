@@ -1,223 +1,458 @@
-<div class="menu-grid">
-    
-    <!-- M01: ข้าวซอยไก่ -->
-    <div class="menu-card">
-        <div class="menu-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80" alt="ข้าวซอยไก่" class="menu-img">
-            <span class="menu-badge">ขายดีที่สุด</span>
-        </div>
-        <div class="menu-body">
-            <div class="menu-header-row">
-                <div class="menu-title-group">
-                    <h3 class="menu-title-th">ข้าวซอยไก่</h3>
-                    <span class="menu-title-en">Khao Soi Chicken</span>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanna Eats - อาหารเหนือต้นตำรับ</title>
+    <style>
+        :root {
+            --primary-color: #b71c1c;
+            --secondary-color: #f57c00;
+            --bg-color: #faf8f5;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Sarabun', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header & Banner */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #ffcc80;
+        }
+
+        .value-prop {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+            font-weight: 300;
+        }
+
+        .btn-header {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-header:hover {
+            background-color: #e65100;
+        }
+
+        /* Container & Sections */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            display: block;
+            margin: 8px auto 0 auto;
+        }
+
+        /* Menu Grid Layout */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .menu-title {
+            font-size: 1.3rem;
+            color: #b71c1c;
+            margin-bottom: 4px;
+        }
+
+        .menu-en {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .menu-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .menu-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+        }
+
+        .price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .tag {
+            background-color: #fff3e0;
+            color: #e65100;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Order / Contact Section */
+        .order-section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 35px 20px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .contact-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn-line {
+            background-color: #06C755;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .form-box {
+            max-width: 500px;
+            margin: 25px auto 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #212121;
+            color: #bbb;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .value-prop { font-size: 1rem; }
+            .container { padding: 0 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Lanna Eats</h1>
+        <p class="value-prop">สัมผัสรสชาติอาหารเหนือต้นตำรับ ล้านนาแท้ ส่งตรงถึงบ้านคุณด้วยวัตถุดิบคุณภาพ</p>
+        <a href="#order" class="btn-header">สั่งซื้ออาหารออนไลน์</a>
+    </header>
+
+    <div class="container">
+        <!-- Catalog Section -->
+        <section id="menu">
+            <h2 class="section-title">เมนูอาหาร / Menu</h2>
+            <div class="menu-grid">
+
+                <!-- 1. ข้าวซอยไก่ -->
+                <div class="menu-card">
+                    <img src="https://www.unileverfoodsolutions.co.th/dam/global-ufs/mcos/SEA/calcmenu/recipes/TH-recipes/chicken-&-other-poultry-dishes/%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%A7%E0%B8%8B%E0%B8%AD%E0%B8%A2%E0%B9%84%E0%B8%81%E0%B9%88/main-header.jpg" alt="ข้าวซอยไก่">
+                    <div class="menu-info">
+                        <h3 class="menu-title">ข้าวซอยไก่</h3>
+                        <p class="menu-en">Khao Soi Chicken</p>
+                        <p class="menu-desc">เส้นบะหมี่เหนียวนุ่มในน้ำแกงกะหรี่สูตรเข้มข้น หอมกลิ่นเครื่องเทศล้านนา เสิร์ฟพร้อมน่องไก่ชิ้นโตนุ่มละมุน</p>
+                        <div class="menu-footer">
+                            <span class="price">฿69</span>
+                            <span class="tag">noodle</span>
+                        </div>
+                    </div>
                 </div>
-                <span class="menu-price">฿69</span>
+
+                <!-- 2. ข้าวซอยเนื้อ -->
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=600&q=80" alt="ข้าวซอยเนื้อ">
+                    <div class="menu-info">
+                        <h3 class="menu-title">ข้าวซอยเนื้อ</h3>
+                        <p class="menu-en">Khao Soi Beef</p>
+                        <p class="menu-desc">ข้าวซอยรสเข้มข้น คัดสรรเนื้อวัวเกรดพรีเมียมนำมาตุ๋นจนเปื่อยนุ่ม เข้ากันได้อย่างลงตัวกับน้ำแกงและบะหมี่กรอบ</p>
+                        <div class="menu-footer">
+                            <span class="price">฿79</span>
+                            <span class="tag">noodle</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. ข้าวซอยเจ -->
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="ข้าวซอยเจ">
+                    <div class="menu-info">
+                        <h3 class="menu-title">ข้าวซอยเจ</h3>
+                        <p class="menu-en">Khao Soi Vegan</p>
+                        <p class="menu-desc">สูตรมังสวิรัติเพื่อสุขภาพ เข้มข้นกลมกล่อมด้วยกะทิและเครื่องเทศเจ เสิร์ฟพร้อมเต้าหู้ทอดและผักสดนานาชนิด</p>
+                        <div class="menu-footer">
+                            <span class="price">฿69</span>
+                            <span class="tag">noodle</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. ไส้อั่ว -->
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="ไส้อั่ว">
+                    <div class="menu-info">
+                        <h3 class="menu-title">ไส้อั่ว</h3>
+                        <p class="menu-en">Sai Ua Sausage</p>
+                        <p class="menu-desc">ไส้อั่วหมูสูตรเชียงใหม่ ย่างด้วยเตาถ่านหอมกรุ่น อุดมด้วยสมุนไพรสด ขมิ้น ตะไคร้ และใบมะกรูด เผ็ดกำลังดี</p>
+                        <div class="menu-footer">
+                            <span class="price">฿49</span>
+                            <span class="tag">side</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. แคบหมู -->
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80" alt="แคบหมู">
+                    <div class="menu-info">
+                        <h3 class="menu-title">แคบหมู</h3>
+                        <p class="menu-en">Pork Crackling</p>
+                        <p class="menu-desc">แคบหมูไร้มัน ทอดใหม่สดกรอบไม่อมน้ำมัน รสชาติเค็มกลมกล่อม เหมาะสำหรับทานคู่กับข้าวซอยหรือขนมจีน</p>
+                        <div class="menu-footer">
+                            <span class="price">฿39</span>
+                            <span class="tag">side</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. ข้าวซอยทะเล -->
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80" alt="ข้าวซอยทะเล">
+                    <div class="menu-info">
+                        <h3 class="menu-title">ข้าวซอยทะเล</h3>
+                        <p class="menu-en">Khao Soi Seafood</p>
+                        <p class="menu-desc">มิติใหม่ของข้าวซอยฟิวชั่น จัดเต็มด้วยกุ้งสดตัวโตและปลาหมึกเนื้อเด้ง ผสานน้ำแกงข้าวซอยเข้มข้นสะใจ</p>
+                        <div class="menu-footer">
+                            <span class="price">฿99</span>
+                            <span class="tag">noodle</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. ชาเย็น -->
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=600&q=80" alt="ชาเย็น">
+                    <div class="menu-info">
+                        <h3 class="menu-title">ชาเย็น</h3>
+                        <p class="menu-en">Thai Iced Tea</p>
+                        <p class="menu-desc">ชาไทยโบราณชงสด หอมกลิ่นใบชาแท้ รสชาติเข้มข้น หวานมันกลมกล่อม ช่วยเติมความสดชื่นดับกระหาย</p>
+                        <div class="menu-footer">
+                            <span class="price">฿29</span>
+                            <span class="tag">drink</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. น้ำส้ม -->
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=600&q=80" alt="น้ำส้ม">
+                    <div class="menu-info">
+                        <h3 class="menu-title">น้ำส้ม</h3>
+                        <p class="menu-en">Orange Juice</p>
+                        <p class="menu-desc">น้ำส้มคั้นสด 100% เปรี้ยวหวานกำลังดี อุดมด้วยวิตามินซี ให้ความรู้สึกสดชื่นเป็นธรรมชาติ</p>
+                        <div class="menu-footer">
+                            <span class="price">฿35</span>
+                            <span class="tag">drink</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. ขนมจีนน้ำเงี้ยว -->
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?auto=format&fit=crop&w=600&q=80" alt="ขนมจีนน้ำเงี้ยว">
+                    <div class="menu-info">
+                        <h3 class="menu-title">ขนมจีนน้ำเงี้ยว</h3>
+                        <p class="menu-en">Khanom Jeen Nam Ngiao</p>
+                        <p class="menu-desc">ขนมจีนเส้นนุ่ม เสิร์ฟพร้อมน้ำเงี้ยวรสชาติกลมกล่อม ใส่ดอกงิ้ว เลือดหมู และหมูสับ ปรุงรสเปรี้ยวเผ็ดกำลังดี</p>
+                        <div class="menu-footer">
+                            <span class="price">฿59</span>
+                            <span class="tag">noodle</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. ข้าวเหนียว -->
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=600&q=80" alt="ข้าวเหนียว">
+                    <div class="menu-info">
+                        <h3 class="menu-title">ข้าวเหนียว</h3>
+                        <p class="menu-en">Sticky Rice</p>
+                        <p class="menu-desc">ข้าวเหนียวเขี้ยวงูอย่างดี นึ่งร้อนๆ เหนียวนุ่ม นุ่มนาน เหมาะสำหรับรับประทานคู่กับไส้อั่วและแคบหมู</p>
+                        <div class="menu-footer">
+                            <span class="price">฿15</span>
+                            <span class="tag">side</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <p class="menu-desc">ข้าวซอยเส้นนุ่มในน้ำแกงกะทิเข้มข้น หอมเครื่องแกงเหนือแท้ น่องไก่ชิ้นโตตุ๋นจนนุ่มร่อน เสิร์ฟพร้อมผักกาดดอง หอมแดง และมะนาวสด</p>
-            <div class="menu-footer">
-                <small style="color: var(--text-muted);">รหัส M01</small>
-                <a href="#order" class="btn-order-item"><i class="fa-solid fa-basket-shopping"></i> สั่งเลย</a>
+        </section>
+
+        <!-- Customer Activity / Contact Section -->
+        <section id="order" class="order-section">
+            <h2 class="section-title">สั่งซื้ออาหาร / ติดต่อเรา</h2>
+            <p>ท่านสามารถสั่งซื้ออาหารได้ผ่านช่องทาง LINE Official หรือกรอกฟอร์มสั่งซื้อด้านล่างได้ทันที</p>
+            
+            <div class="contact-box">
+                <a href="https://line.me" target="_blank" class="btn-line">💚 สั่งซื้อผ่าน LINE OA: @lannaeats</a>
             </div>
-        </div>
+
+            <div class="form-box">
+                <form onsubmit="alert('ขอบคุณสำหรับคำสั่งซื้อ! เราจะติดต่อกลับโดยเร็วที่สุด'); return false;">
+                    <div class="form-group">
+                        <label for="name">ชื่อผู้สั่งซื้อ:</label>
+                        <input type="text" id="name" required placeholder="เช่น สมชาย ใจดี">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">เบอร์โทรศัพท์:</label>
+                        <input type="tel" id="phone" required placeholder="08X-XXX-XXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="select-menu">เลือกรายการอาหารหลัก:</label>
+                        <select id="select-menu">
+                            <option>ข้าวซอยไก่ (฿69)</option>
+                            <option>ข้าวซอยเนื้อ (฿79)</option>
+                            <option>ข้าวซอยเจ (฿69)</option>
+                            <option>ไส้อั่ว (฿49)</option>
+                            <option>แคบหมู (฿39)</option>
+                            <option>ข้าวซอยทะเล (฿99)</option>
+                            <option>ชาเย็น (฿29)</option>
+                            <option>น้ำส้ม (฿35)</option>
+                            <option>ขนมจีนน้ำเงี้ยว (฿59)</option>
+                            <option>ข้าวเหนียว (฿15)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">ที่อยู่จัดส่ง / รายละเอียดเพิ่มเติม:</label>
+                        <textarea id="address" rows="3" placeholder="ระบุที่อยู่จัดส่งสินค้า..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">ยืนยันการสั่งซื้อ</button>
+                </form>
+            </div>
+        </section>
     </div>
 
-    <!-- M02: ข้าวซอยเนื้อ -->
-    <div class="menu-card">
-        <div class="menu-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80" alt="ข้าวซอยเนื้อ" class="menu-img">
-            <span class="menu-badge">แนะนำ</span>
-        </div>
-        <div class="menu-body">
-            <div class="menu-header-row">
-                <div class="menu-title-group">
-                    <h3 class="menu-title-th">ข้าวซอยเนื้อ</h3>
-                    <span class="menu-title-en">Khao Soi Beef</span>
-                </div>
-                <span class="menu-price">฿79</span>
-            </div>
-            <p class="menu-desc">เนื้อน่องลายเคี่ยวจนเปื่อยนุ่มละมุนลิ้น ชุ่มฉ่ำน้ำแกงข้าวซอยเข้มข้นรสกลมกล่อม สำหรับผู้ที่ชื่นชอบเนื้อวัวคุณภาพเยี่ยม</p>
-            <div class="menu-footer">
-                <small style="color: var(--text-muted);">รหัส M02</small>
-                <a href="#order" class="btn-order-item"><i class="fa-solid fa-basket-shopping"></i> สั่งเลย</a>
-            </div>
-        </div>
-    </div>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2026 Lanna Eats. 703311 Information Systems for Business - Project 2</p>
+    </footer>
 
-    <!-- M03: ข้าวซอยเจ -->
-    <div class="menu-card">
-        <div class="menu-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=800&q=80" alt="ข้าวซอยเจ" class="menu-img">
-            <span class="menu-badge">สายสุขภาพ</span>
-        </div>
-        <div class="menu-body">
-            <div class="menu-header-row">
-                <div class="menu-title-group">
-                    <h3 class="menu-title-th">ข้าวซอยเจ</h3>
-                    <span class="menu-title-en">Khao Soi Vegan</span>
-                </div>
-                <span class="menu-price">฿69</span>
-            </div>
-            <p class="menu-desc">สูตรมังสวิรัติไร้เนื้อสัตว์ ใช้น้ำซุปผักและเต้าหู้คุณภาพดี เคี่ยวกับเครื่องแกงเจรสจัดจ้าน อร่อยอิ่มบุญได้สุขภาพเต็มคำ</p>
-            <div class="menu-footer">
-                <small style="color: var(--text-muted);">รหัส M03</small>
-                <a href="#order" class="btn-order-item"><i class="fa-solid fa-basket-shopping"></i> สั่งเลย</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- M09: ขนมจีนน้ำเงี้ยว -->
-    <div class="menu-card">
-        <div class="menu-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=800&q=80" alt="ขนมจีนน้ำเงี้ยว" class="menu-img">
-            <span class="menu-badge">ดั้งเดิม</span>
-        </div>
-        <div class="menu-body">
-            <div class="menu-header-row">
-                <div class="menu-title-group">
-                    <h3 class="menu-title-th">ขนมจีนน้ำเงี้ยว</h3>
-                    <span class="menu-title-en">Khanom Jeen Nam Ngiao</span>
-                </div>
-                <span class="menu-price">฿59</span>
-            </div>
-            <p class="menu-desc">ขนมจีนเส้นนุ่ม ราดน้ำเงี้ยวรสกลมกล่อมเปรี้ยวเผ็ดกำลังดี ใส่ดอกงิ้ว เลือดหมูนุ่มๆ และหมูสับแน่นๆ เครื่องเคียงจัดเต็ม</p>
-            <div class="menu-footer">
-                <small style="color: var(--text-muted);">รหัส M09</small>
-                <a href="#order" class="btn-order-item"><i class="fa-solid fa-basket-shopping"></i> สั่งเลย</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- M04: ไส้อั่ว -->
-    <div class="menu-card">
-        <div class="menu-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80" alt="ไส้อั่ว" class="menu-img">
-            <span class="menu-badge">ทานเล่น</span>
-        </div>
-        <div class="menu-body">
-            <div class="menu-header-row">
-                <div class="menu-title-group">
-                    <h3 class="menu-title-th">ไส้อั่ว</h3>
-                    <span class="menu-title-en">Sai Ua Sausage</span>
-                </div>
-                <span class="menu-price">฿49</span>
-            </div>
-            <p class="menu-desc">ไส้อั่วหมูสูตรเชียงใหม่ ย่างบนเตาถ่านหอมกรุ่น อุดมด้วยสมุนไพรทั้งตะไคร้ ใบมะกรูด และพริกแกง รสชาติจัดจ้าน</p>
-            <div class="menu-footer">
-                <small style="color: var(--text-muted);">รหัส M04</small>
-                <a href="#order" class="btn-order-item"><i class="fa-solid fa-basket-shopping"></i> สั่งเลย</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- M05: แคบหมู -->
-    <div class="menu-card">
-        <div class="menu-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=800&q=80" alt="แคบหมู" class="menu-img">
-            <span class="menu-badge">เครื่องเคียง</span>
-        </div>
-        <div class="menu-body">
-            <div class="menu-header-row">
-                <div class="menu-title-group">
-                    <h3 class="menu-title-th">แคบหมู</h3>
-                    <span class="menu-title-en">Pork Crackling</span>
-                </div>
-                <span class="menu-price">฿39</span>
-            </div>
-            <p class="menu-desc">แคบหมูไร้มันกรอบฟู ทอดใหม่สดไม่อมน้ำมัน รสสัมผัสกรุบกรอบ ทานคู่กับข้าวซอยหรือขนมจีนน้ำเงี้ยวเข้ากันได้อย่างลงตัว</p>
-            <div class="menu-footer">
-                <small style="color: var(--text-muted);">รหัส M05</small>
-                <a href="#order" class="btn-order-item"><i class="fa-solid fa-basket-shopping"></i> สั่งเลย</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- M10: ข้าวเหนียว -->
-    <div class="menu-card">
-        <div class="menu-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80" alt="ข้าวเหนียว" class="menu-img">
-            <span class="menu-badge">เครื่องเคียง</span>
-        </div>
-        <div class="menu-body">
-            <div class="menu-header-row">
-                <div class="menu-title-group">
-                    <h3 class="menu-title-th">ข้าวเหนียว</h3>
-                    <span class="menu-title-en">Sticky Rice</span>
-                </div>
-                <span class="menu-price">฿15</span>
-            </div>
-            <p class="menu-desc">ข้าวเหนียวเขี้ยวงูพันธุ์ดี นึ่งนุ่มนิ่มหอมกรุ่น นึ่งสดใหม่ร้อนๆ ในกระติบ เหมาะสำหรับทานคู่กับไส้อั่วและแคบหมู</p>
-            <div class="menu-footer">
-                <small style="color: var(--text-muted);">รหัส M10</small>
-                <a href="#order" class="btn-order-item"><i class="fa-solid fa-basket-shopping"></i> สั่งเลย</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- M06: ข้าวซอยทะเล -->
-    <div class="menu-card">
-        <div class="menu-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=800&q=80" alt="ข้าวซอยทะเล" class="menu-img">
-            <span class="menu-badge">พรีเมียม</span>
-        </div>
-        <div class="menu-body">
-            <div class="menu-header-row">
-                <div class="menu-title-group">
-                    <h3 class="menu-title-th">ข้าวซอยทะเล</h3>
-                    <span class="menu-title-en">Khao Soi Seafood</span>
-                </div>
-                <span class="menu-price">฿99</span>
-            </div>
-            <p class="menu-desc">มิติใหม่ของข้าวซอย ผสานกุ้งสดและหมึกกล้วยตัวโต เข้ากับน้ำแกงข้าวซอยเข้มข้น ได้รสชาติหวานหอมสดใหม่จากทะเล</p>
-            <div class="menu-footer">
-                <small style="color: var(--text-muted);">รหัส M06</small>
-                <a href="#order" class="btn-order-item"><i class="fa-solid fa-basket-shopping"></i> สั่งเลย</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- M07: ชาเย็น -->
-    <div class="menu-card">
-        <div class="menu-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=800&q=80" alt="ชาเย็น" class="menu-img">
-            <span class="menu-badge">เครื่องดื่ม</span>
-        </div>
-        <div class="menu-body">
-            <div class="menu-header-row">
-                <div class="menu-title-group">
-                    <h3 class="menu-title-th">ชาเย็น</h3>
-                    <span class="menu-title-en">Thai Iced Tea</span>
-                </div>
-                <span class="menu-price">฿29</span>
-            </div>
-            <p class="menu-desc">ชาไทยโบราณชงสด รสชาติหอมกลมกล่อม ใส่นมสดหวานมันพอดี ช่วยเพิ่มความสดชื่นและตัดความเผ็ดได้อย่างดีเยี่ยม</p>
-            <div class="menu-footer">
-                <small style="color: var(--text-muted);">รหัส M07</small>
-                <a href="#order" class="btn-order-item"><i class="fa-solid fa-basket-shopping"></i> สั่งเลย</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- M08: น้ำส้ม -->
-    <div class="menu-card">
-        <div class="menu-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80" alt="น้ำส้ม" class="menu-img">
-            <span class="menu-badge">เครื่องดื่ม</span>
-        </div>
-        <div class="menu-body">
-            <div class="menu-header-row">
-                <div class="menu-title-group">
-                    <h3 class="menu-title-th">น้ำส้ม</h3>
-                    <span class="menu-title-en">Orange Juice</span>
-                </div>
-                <span class="menu-price">฿35</span>
-            </div>
-            <p class="menu-desc">น้ำส้มสายน้ำผึ้งคั้นสด 100% รสชาติหวานเปรี้ยวกลมกล่อม มีเกล็ดส้มเคี้ยวเพลิน อุดมด้วยวิตามินซีสดชื่นทุกคำ</p>
-            <div class="menu-footer">
-                <small style="color: var(--text-muted);">รหัส M08</small>
-                <a href="#order" class="btn-order-item"><i class="fa-solid fa-basket-shopping"></i> สั่งเลย</a>
-            </div>
-        </div>
-    </div>
-
-</div>
+</body>
+</html>
